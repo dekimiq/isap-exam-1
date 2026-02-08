@@ -1,0 +1,12 @@
+<h1>{{ idea.title }}</h1>
+
+<p>
+  <strong>Сложность:</strong> {{ idea.difficulty  }}
+  <br>
+</p>
+
+<p>
+  {{ idea.description }}
+</p>
+
+<a href="{% url 'index' %}">Вернуться назад</a>

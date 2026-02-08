@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Магазин идей</h1>
+    <p>Всего идей: {{ ideas|length }}</p>
+
+    <div class="container text-center">
+      <dvi class="row row-cols-2 gap-2">
+        {% for idea in ideas %}
+          <div class="card coll" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ idea.title }}</h5>
+              <p class="card-text">Сложность: {{ idea.difficulty }}</p>
+              <a href="{% url 'detail_idea' pk=idea.pk %}" class="btn btn-primary">Посмотреть</a>
+            </div>
+          </div>
+        {% endfor %}
+      </dvi>
+      </div>
+{% endblock %}
