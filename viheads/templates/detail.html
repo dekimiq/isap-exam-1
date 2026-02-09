@@ -1,12 +1,23 @@
-<h1>{{ idea.title }}</h1>
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
 
-<p>
-  <strong>Сложность:</strong> {{ idea.difficulty  }}
-  <br>
-</p>
 
-<p>
-  {{ idea.description }}
-</p>
+{% block content %}
+  <h1>{{ idea.title }}</h1>
 
-<a href="{% url 'index' %}">Вернуться назад</a>
+  <p class="card-text"></p><span class="badge text-bg-info">Сложность: {{ idea.difficulty }}</span></p>
+
+  <p>
+    {{ idea.description }}
+  </p>
+
+  <a href="{% url 'index' %}" class="btn btn-secondary">
+    Вернуться назад
+  </a>
+  <a href="{% url 'update_idea' pk=idea.pk %}" class="btn btn-warning">
+    Редактировать
+  </a>
+  <a href="{% url 'delete_idea' pk=idea.pk %}" class="btn btn-danger">
+    Удалить
+  </a>
+{% endblock %}

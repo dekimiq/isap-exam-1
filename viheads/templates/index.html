@@ -10,7 +10,7 @@
           <div class="card coll" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{ idea.title }}</h5>
-              <p class="card-text">Сложность: {{ idea.difficulty }}</p>
+              <p class="card-text"></p><span class="badge text-bg-info">Сложность: {{ idea.difficulty }}</span></p>
               <a href="{% url 'detail_idea' pk=idea.pk %}" class="btn btn-primary">Посмотреть</a>
             </div>
           </div>

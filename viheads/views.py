@@ -20,3 +20,23 @@ def create_idea(request):
 def get_idea(request, pk):
   idea = get_object_or_404(Idea, pk=pk)
   return render(request, 'detail.html', {'idea': idea})
+
+def update_idea(request, pk):
+  idea = get_object_or_404(Idea, pk=pk)
+  if request.method == 'POST':
+    form = IdeaForm(request.POST, instance=idea)
+    if form.is_valid():
+      form.save()
+      return redirect('detail_idea', pk=pk)
+  else:
+    form = IdeaForm(instance=idea)
+    return render(request, 'update_idea.html', {'form': form, 'idea': idea})
+
+def delete_idea(request, pk):
+  idea = get_object_or_404(Idea, pk=pk)
+  if request.method == 'POST':
+    idea.delete()
+    return redirect('index')
+  else:
+    return render(request, 'delete_idea.html', {'idea': idea})
+
